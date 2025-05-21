@@ -1,4 +1,12 @@
+import os
+import pytest
 from app import hello, add, subtract, multiply, divide
+from pymongo import MongoClient
+from dotenv import load_dotenv
+
+load_dotenv()
+MONGO_URI = os.getenv("MONGO_URI")
+debug_mode = os.getenv("DEBUG")
 
 def test_hello():
     assert hello() == "Hello, world!"
